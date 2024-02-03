@@ -1,6 +1,7 @@
 import cv2
 import tkinter as tk
 from tkinter import ttk
+from tkinter import *
 from PIL import Image, ImageTk
 
 thres = 0.50  # Threshold to detect objects
@@ -21,7 +22,7 @@ with open(classFile, 'rt') as f:
     classNames = f.read().rstrip('\n').split('\n')
 
 # Load the pre-trained model
-configPath = 'ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
+configPath = 'pretrained_model.pbtxt'
 weightsPath = 'frozen_inference_graph.pb'
 
 net = cv2.dnn_DetectionModel(weightsPath, configPath)
@@ -114,5 +115,3 @@ root.mainloop()
 # Release the capture object and close the window
 cap.release()
 cv2.destroyAllWindows()
-
-print("Hello commit changes will reflect soon ")
